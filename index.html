@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lali González – Merecés Diseño</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crema: #eee9df;
+    --salvia: #b5c79e;
+    --teal: #009588;
+    --oscuro: #003637;
+    --terracota: #cf4d27;
+    --negro: #0a0a0a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--crema);
+    color: var(--oscuro);
+    overflow-x: hidden;
+  }
+
+  /* ─── TIPOGRAFÍA IMPACT ─── */
+  .impact {
+    font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5vw;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,149,136,0.2);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 38px;
+    width: auto;
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-brand span:first-child {
+    font-family: 'Impact', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    text-transform: uppercase;
+  }
+
+  .nav-brand span:last-child {
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--crema);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--crema);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--teal); }
+
+  .nav-cta {
+    background: var(--terracota);
+    color: #fff !important;
+    padding: 10px 22px !important;
+    border-radius: 2px;
+    opacity: 1 !important;
+  }
+
+  .nav-cta:hover { background: #b8411f; color: #fff !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--crema);
+    transition: all 0.3s;
+    display: block;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--negro);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 5vw 80px 7vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 6vw, 88px);
+    color: var(--crema);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title .accent {
+    color: var(--teal);
+    display: block;
+  }
+
+  .hero-title .terracota-word {
+    color: var(--terracota);
+  }
+
+  .hero-sub {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 300;
+    color: rgba(238,233,223,0.65);
+    line-height: 1.9;
+    max-width: 440px;
+    margin-bottom: 52px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-sub strong {
+    color: var(--crema);
+    font-weight: 600;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--terracota);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    border-radius: 2px;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(207,77,39,0.4); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--crema);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 2px;
+    border: 1px solid rgba(238,233,223,0.3);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .hero-microtexto {
+    font-size: 11px;
+    color: rgba(238,233,223,0.4);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-microtexto::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #003637 0%, #001e1f 40%, #0a1a0a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+
+  .hero-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(0,149,136,0.03) 40px,
+        rgba(0,149,136,0.03) 80px
+      );
+  }
+
+  .placeholder-icon {
+    font-size: 64px;
+    opacity: 0.15;
+  }
+
+  .placeholder-text {
+    font-family: 'Impact', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    opacity: 0.4;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Decorative overlay left edge */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, var(--negro), transparent);
+    z-index: 1;
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 7vw;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(238,233,223,0.3);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(0.5); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5vw;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  /* ─── SECCIÓN 2: PROBLEMA ─── */
+  #problema {
+    background: var(--oscuro);
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .problema-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .problema-label { color: var(--salvia); }
+  .problema-label::before { background: var(--salvia); }
+
+  .problema-titulo {
+    font-size: clamp(36px, 4vw, 58px);
+    color: var(--crema);
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .problema-titulo .highlight {
+    color: var(--terracota);
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 0.7em;
+    display: block;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .problema-intro {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.6);
+    line-height: 1.9;
+    max-width: 440px;
+    letter-spacing: 0.02em;
+  }
+
+  .problema-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .bullet-item {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(238,233,223,0.07);
+    align-items: flex-start;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .bullet-item:first-child { border-top: 1px solid rgba(238,233,223,0.07); }
+
+  .bullet-item:hover .bullet-num { color: var(--terracota); }
+  .bullet-item:hover .bullet-text { color: var(--crema); }
+
+  .bullet-num {
+    font-family: 'Impact', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: rgba(0,149,136,0.4);
+    min-width: 32px;
+    padding-top: 2px;
+    transition: color 0.3s;
+  }
+
+  .bullet-content { flex: 1; }
+
+  .bullet-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--crema);
+    margin-bottom: 4px;
+  }
+
+  .bullet-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.5);
+    line-height: 1.6;
+    transition: color 0.3s;
+  }
+
+  /* ─── SECCIÓN 3: TRANSFORMACIÓN ─── */
+  #transformacion {
+    background: var(--crema);
+    padding: 120px 0;
+  }
+
+  .trans-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .trans-titulo {
+    font-size: clamp(42px, 5vw, 72px);
+    color: var(--oscuro);
+    text-transform: uppercase;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .trans-titulo span { color: var(--teal); }
+
+  .trans-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0,54,55,0.6);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+  }
+
+  /* Before/After slider */
+  .ba-wrapper {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    height: 420px;
+    background: var(--oscuro);
+    cursor: col-resize;
+    user-select: none;
+  }
+
+  .ba-before, .ba-after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ba-before {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    z-index: 1;
+  }
+
+  .ba-after {
+    background: linear-gradient(135deg, var(--oscuro), #005050);
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+    transition: clip-path 0.05s;
+  }
+
+  .ba-label-text {
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.1em;
+    opacity: 0.15;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .ba-icon { font-size: 48px; opacity: 0.2; }
+
+  .ba-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--teal);
+    z-index: 3;
+    transform: translateX(-50%);
+    transition: left 0.05s;
+  }
+
+  .ba-divider::before {
+    content: '↔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,149,136,0.4);
+    line-height: 1;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .ba-tag {
+    position: absolute;
+    bottom: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    z-index: 4;
+  }
+
+  .ba-tag.left { left: 20px; }
+  .ba-tag.right { right: 20px; }
+
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .beneficio-card {
+    background: var(--oscuro);
+    padding: 36px 24px;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .beneficio-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .beneficio-card:hover::before { transform: scaleX(1); }
+  .beneficio-card:hover { background: #004a4b; }
+
+  .beneficio-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .beneficio-titulo {
+    font-family: 'Impact', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .beneficio-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.5);
+    line-height: 1.6;
+  }
+
+  /* ─── SECCIÓN 4: SERVICIOS ─── */
+  #servicios {
+    background: var(--oscuro);
+    padding: 120px 0;
+  }
+
+  .servicios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .servicios-titulo {
+    font-size: clamp(38px, 4.5vw, 64px);
+    color: var(--crema);
+    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+  }
+
+  .servicios-titulo span { color: var(--terracota); }
+
+  .servicios-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.5);
+    max-width: 300px;
+    line-height: 1.9;
+    text-align: right;
+    letter-spacing: 0.02em;
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .servicio-card {
+    background: #002829;
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+    cursor: default;
+  }
+
+  .servicio-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--teal);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s;
+  }
+
+  .servicio-card:hover::after { transform: scaleY(1); }
+  .servicio-card:hover { background: #003a3b; }
+
+  .servicio-num {
+    font-family: 'Impact', sans-serif;
+    font-size: 80px;
+    color: rgba(0,149,136,0.06);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .servicio-tag {
+    display: inline-block;
+    background: rgba(0,149,136,0.15);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 1px;
+    margin-bottom: 20px;
+  }
+
+  .servicio-titulo {
+    font-size: 26px;
+    color: var(--crema);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .servicio-para {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--terracota);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .servicio-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.55);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .servicio-resultado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--salvia);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .servicio-resultado::before {
+    content: '→';
+    color: var(--teal);
+    font-size: 14px;
+  }
+
+  /* ─── SECCIÓN 5: PROCESO ─── */
+  #proceso {
+    background: var(--crema);
+    padding: 120px 0;
+  }
+
+  .proceso-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .proceso-titulo {
+    font-size: clamp(40px, 4.5vw, 66px);
+    color: var(--oscuro);
+    text-transform: uppercase;
+    line-height: 1.08;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .proceso-titulo span { color: var(--teal); }
+
+  .proceso-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(0,54,55,0.55);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+  }
+
+  .proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .proceso-steps::before {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(to right, var(--teal), var(--salvia));
+    z-index: 0;
+  }
+
+  .proceso-step {
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .paso-circle {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: var(--oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .proceso-step:hover .paso-circle {
+    background: var(--teal);
+    transform: scale(1.05);
+    box-shadow: 0 16px 40px rgba(0,149,136,0.3);
+  }
+
+  .paso-num {
+    font-family: 'Impact', sans-serif;
+    font-size: 36px;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    transition: color 0.3s;
+  }
+
+  .proceso-step:hover .paso-num { color: #fff; }
+
+  .paso-titulo {
+    font-family: 'Impact', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--oscuro);
+    margin-bottom: 12px;
+  }
+
+  .paso-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(0,54,55,0.6);
+    line-height: 1.7;
+  }
+
+  /* ─── SECCIÓN 6: PORTFOLIO ─── */
+  #portfolio {
+    background: #0a0a0a;
+    padding: 120px 0;
+  }
+
+  .portfolio-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .portfolio-titulo {
+    font-size: clamp(40px, 4.5vw, 64px);
+    color: var(--crema);
+    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+  }
+
+  .portfolio-titulo span { color: var(--teal); }
+
+  .portfolio-intro {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.5);
+    line-height: 1.8;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .portfolio-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 400px;
+  }
+
+  .portfolio-card:first-child {
+    grid-row: span 2;
+    height: 100%;
+  }
+
+  .portfolio-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio-card:nth-child(1) .portfolio-placeholder { background: linear-gradient(135deg, #001a1a, #003637); }
+  .portfolio-card:nth-child(2) .portfolio-placeholder { background: linear-gradient(135deg, #1a0a00, #3d1a00); }
+  .portfolio-card:nth-child(3) .portfolio-placeholder { background: linear-gradient(135deg, #0a1a0a, #1a3020); }
+
+  .portfolio-card:hover .portfolio-placeholder { transform: scale(1.05); }
+
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 36px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+
+  .portfolio-card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-card-titulo {
+    font-family: 'Impact', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: var(--crema);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .portfolio-card-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  /* ─── SECCIÓN 7: AUTORIDAD ─── */
+  #autoridad {
+    background: var(--crema);
+    padding: 120px 0;
+  }
+
+  .autoridad-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .autoridad-img-wrap {
+    position: relative;
+  }
+
+  .autoridad-img-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--oscuro), #005050);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .autoridad-img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(0,149,136,0.03) 20px,
+      rgba(0,149,136,0.03) 40px
+    );
+  }
+
+  .autoridad-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: var(--terracota);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .badge-num {
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+
+  .autoridad-content {}
+
+  .autoridad-titulo {
+    font-size: clamp(32px, 3.5vw, 52px);
+    color: var(--oscuro);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .autoridad-titulo span { color: var(--teal); }
+
+  .autoridad-cargo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracota);
+    margin-bottom: 24px;
+  }
+
+  .autoridad-bio {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0,54,55,0.65);
+    line-height: 1.95;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .autoridad-bio strong { color: var(--oscuro); font-weight: 600; }
+
+  .autoridad-diferencial {
+    background: var(--oscuro);
+    padding: 28px 32px;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 2px 2px 0;
+    margin-bottom: 40px;
+  }
+
+  .diferencial-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--crema);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .diferencial-text strong { color: var(--teal); font-style: normal; font-weight: 700; }
+
+  /* Testimonios */
+  .testimonios-titulo {
+    font-size: 28px;
+    color: var(--oscuro);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .testimonios-titulo span { color: var(--teal); }
+
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .testimonio-card {
+    background: var(--oscuro);
+    padding: 40px 32px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .testimonio-card:hover { background: #004a4b; }
+
+  .testimonio-quote {
+    font-family: 'Impact', sans-serif;
+    font-size: 64px;
+    color: var(--teal);
+    line-height: 0.5;
+    opacity: 0.3;
+    margin-bottom: 16px;
+  }
+
+  .testimonio-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.75);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  .testimonio-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .autor-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--oscuro));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Impact', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .autor-info {}
+  .autor-nombre { font-size: 13px; font-weight: 700; color: var(--crema); }
+  .autor-proyecto { font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ─── SECCIÓN 8: FAQ ─── */
+  #faq {
+    background: var(--oscuro);
+    padding: 120px 0;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .faq-titulo {
+    font-size: clamp(36px, 4vw, 58px);
+    color: var(--crema);
+    text-transform: uppercase;
+    line-height: 1.12;
+    position: sticky;
+    top: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  .faq-titulo span { color: var(--terracota); }
+
+  .faq-list { display: flex; flex-direction: column; }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(238,233,223,0.08);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    cursor: pointer;
+    gap: 20px;
+    transition: color 0.3s;
+  }
+
+  .faq-question:hover { color: var(--teal); }
+
+  .faq-q-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--crema);
+    line-height: 1.4;
+    transition: color 0.3s;
+  }
+
+  .faq-question:hover .faq-q-text { color: var(--teal); }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(238,233,223,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--teal);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s;
+  }
+
+  .faq-item.open .faq-answer { max-height: 200px; }
+
+  .faq-a-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.55);
+    line-height: 1.8;
+    padding-bottom: 24px;
+  }
+
+  /* ─── SECCIÓN 9: CTA / CONTACTO ─── */
+  #contacto {
+    background: var(--teal);
+    padding: 120px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #contacto::before {
+    content: 'DISEÑO';
+    font-family: 'Impact', sans-serif;
+    font-size: 320px;
+    color: rgba(0,0,0,0.08);
+    position: absolute;
+    bottom: -80px;
+    right: -40px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contacto-left {}
+
+  .contacto-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(238,233,223,0.6);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contacto-eyebrow::before { content: ''; width: 24px; height: 1px; background: rgba(238,233,223,0.6); }
+
+  .contacto-titulo {
+    font-size: clamp(38px, 4.5vw, 64px);
+    color: var(--crema);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .contacto-titulo .break { display: block; }
+  .contacto-titulo .oscuro-word { color: var(--oscuro); }
+
+  .contacto-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.75);
+    line-height: 1.95;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+  }
+
+  .contacto-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 32px;
+    border-radius: 2px;
+    transition: all 0.25s;
+    margin-bottom: 16px;
+    display: flex;
+  }
+
+  .contacto-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  .contacto-o {
+    font-size: 11px;
+    color: rgba(238,233,223,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  /* Formulario */
+  .form-wrap {
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    padding: 48px 44px;
+    border-radius: 4px;
+  }
+
+  .form-titulo {
+    font-family: 'Impact', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--crema);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(238,233,223,0.6);
+  }
+
+  input, select, textarea {
+    background: rgba(238,233,223,0.08);
+    border: 1px solid rgba(238,233,223,0.15);
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--crema);
+    outline: none;
+    transition: all 0.25s;
+    width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(238,233,223,0.3); }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(238,233,223,0.5);
+    background: rgba(238,233,223,0.12);
+  }
+
+  select option { background: var(--oscuro); color: var(--crema); }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--terracota);
+    color: #fff;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .form-submit:hover {
+    background: #b8411f;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(207,77,39,0.4);
+  }
+
+  .form-micro {
+    font-size: 11px;
+    color: rgba(238,233,223,0.4);
+    text-align: center;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .form-micro::before { content: '🔒'; font-size: 10px; }
+
+  /* ─── SECCIÓN 10: CIERRE ─── */
+  #cierre {
+    background: var(--negro);
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .cierre-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 5vw;
+  }
+
+  .cierre-titulo {
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--crema);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .cierre-titulo span { color: var(--teal); }
+
+  .cierre-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(238,233,223,0.5);
+    line-height: 1.95;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+  }
+
+  .cierre-garantias {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .garantia-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(238,233,223,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .garantia-item span { color: var(--teal); font-size: 16px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050505;
+    padding: 40px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(238,233,223,0.05);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Impact', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: rgba(238,233,223,0.3);
+    text-transform: uppercase;
+  }
+
+  .footer-brand span { color: var(--teal); }
+
+  .footer-social {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-social a {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(238,233,223,0.3);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover { color: var(--teal); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(238,233,223,0.2);
+  }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── MOBILE MENU ─── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,10,10,0.98);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    backdrop-filter: blur(20px);
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Impact', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.05em;
+    color: var(--crema);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--teal); }
+
+  .mobile-close {
+    position: absolute;
+    top: 24px;
+    right: 5vw;
+    font-size: 28px;
+    color: var(--crema);
+    cursor: pointer;
+    opacity: 0.5;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav .btn-primary { display: none; }
+
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 120px 5vw 60px; }
+    .hero-right { height: 50vw; min-height: 280px; }
+
+    .problema-grid { grid-template-columns: 1fr; gap: 48px; }
+    .beneficios-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .proceso-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .proceso-steps::before { display: none; }
+
+    .servicios-grid { grid-template-columns: 1fr; }
+    .servicios-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .servicios-desc { text-align: left; }
+
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-card:first-child { height: 400px; }
+
+    .autoridad-grid { grid-template-columns: 1fr; gap: 40px; }
+    .autoridad-badge { bottom: 16px; right: 16px; }
+
+    .testimonios-grid { grid-template-columns: 1fr; gap: 2px; }
+
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-titulo { position: static; margin-bottom: 40px; }
+
+    .contacto-grid { grid-template-columns: 1fr; }
+
+    .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .beneficios-grid { grid-template-columns: 1fr 1fr; }
+    .proceso-steps { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .portfolio-header { grid-template-columns: 1fr; }
+    .cierre-garantias { gap: 20px; }
+
+    .hero-title { font-size: clamp(44px, 12vw, 72px); }
+    .ba-wrapper { height: 260px; }
+    .servicio-card { padding: 36px 28px; }
+    .form-wrap { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-brand">
+      <span>Lali González</span>
+      <span>Merecés Diseño</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#autoridad">Sobre mí</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contacto" class="btn-primary nav-cta">Hablemos</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MENÚ MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+  <a href="#proceso" onclick="toggleMenu()">Proceso</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="#autoridad" onclick="toggleMenu()">Sobre mí</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#contacto" onclick="toggleMenu()" style="color:var(--teal)">Hablemos →</a>
+</div>
+
+<!-- ─── 1. HERO ─── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Diseño de interiores · Buenos Aires</div>
+    <h1 class="hero-title impact">
+      Tu espacio
+      <span class="accent">merece<br>reflejarte.</span>
+    </h1>
+    <p class="hero-sub">
+      <strong>Diseñamos interiores que combinan estética, funcionalidad y personalidad.</strong> Para quienes quieren vivir en un espacio que realmente los representa — sin improvisaciones.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#contacto" class="btn-primary">
+        Quiero transformar mi espacio
+        <span>→</span>
+      </a>
+      <a href="#portfolio" class="btn-secondary">Ver proyectos reales</a>
+      <div class="hero-microtexto">Respondemos en menos de 24 hs. Sin compromiso.</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <span class="placeholder-icon">🏠</span>
+      <span class="placeholder-text">Tu imagen de proyecto aquí<br>500×700px recomendado</span>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ─── 2. PROBLEMA ─── -->
+<section id="problema">
+  <div class="section-inner">
+    <div class="problema-grid">
+      <div class="reveal">
+        <div class="section-label problema-label">Te entendemos</div>
+        <h2 class="problema-titulo impact">
+          Si esto te<br>suena<br>
+          <span class="highlight">...conocés la sensación.</span>
+        </h2>
+        <p class="problema-intro">
+          Muchas personas postergan el diseño de su hogar porque no saben por dónde empezar, o porque creen que requiere un presupuesto inaccesible. La realidad es otra.
+        </p>
+      </div>
+
+      <div class="problema-bullets reveal reveal-delay-2">
+        <div class="bullet-item">
+          <span class="bullet-num">01</span>
+          <div class="bullet-content">
+            <div class="bullet-title">No sabés por dónde empezar</div>
+            <div class="bullet-text">Tenés muchas ideas sueltas, referencias guardadas, pero ninguna se conecta en algo coherente.</div>
+          </div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-num">02</span>
+          <div class="bullet-content">
+            <div class="bullet-title">Comprás cosas que después no combinan</div>
+            <div class="bullet-text">Ese sillón que parecía perfecto en la tienda, ese cuadro que encontraste, esa lámpara… y nada habla entre sí.</div>
+          </div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-num">03</span>
+          <div class="bullet-content">
+            <div class="bullet-title">Tu espacio no refleja quién sos</div>
+            <div class="bullet-text">Entrás a tu casa y sentís que podría ser la de cualquiera. Algo falta, aunque no sepas exactamente qué.</div>
+          </div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-num">04</span>
+          <div class="bullet-content">
+            <div class="bullet-title">El caos visual te genera estrés</div>
+            <div class="bullet-text">Sin orden visual, hasta el descanso se dificulta. El entorno que habitamos afecta cómo nos sentimos cada día.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. TRANSFORMACIÓN ─── -->
+<section id="transformacion">
+  <div class="section-inner">
+    <div class="trans-header reveal">
+      <div class="section-label" style="justify-content:center">El cambio es posible</div>
+      <h2 class="trans-titulo impact">El espacio que<br><span>merecés</span> existe.</h2>
+      <p class="trans-sub">Deslizá para ver la diferencia. No son renders ideales — son proyectos reales con soluciones concretas.</p>
+    </div>
+
+    <!-- Before/After -->
+    <div class="ba-wrapper reveal" id="baWrapper">
+      <div class="ba-before">
+        <span class="ba-icon">😕</span>
+        <span class="ba-label-text">Antes</span>
+      </div>
+      <div class="ba-after" id="baAfter">
+        <span class="ba-icon">✨</span>
+        <span class="ba-label-text">Después</span>
+      </div>
+      <div class="ba-divider" id="baDivider"></div>
+      <span class="ba-tag left">ANTES</span>
+      <span class="ba-tag right">DESPUÉS</span>
+    </div>
+
+    <div class="beneficios-grid reveal">
+      <div class="beneficio-card">
+        <span class="beneficio-icon">⚡</span>
+        <div class="beneficio-titulo">Funcionalidad</div>
+        <div class="beneficio-text">Cada elemento tiene su lugar y su propósito.</div>
+      </div>
+      <div class="beneficio-card">
+        <span class="beneficio-icon">🎨</span>
+        <div class="beneficio-titulo">Estética</div>
+        <div class="beneficio-text">Armonía visual que no pasa de moda.</div>
+      </div>
+      <div class="beneficio-card">
+        <span class="beneficio-icon">🧘</span>
+        <div class="beneficio-titulo">Sensación</div>
+        <div class="beneficio-text">Un ambiente que te hace sentir bien al entrar.</div>
+      </div>
+      <div class="beneficio-card">
+        <span class="beneficio-icon">📐</span>
+        <div class="beneficio-titulo">Orden</div>
+        <div class="beneficio-text">Espacios pensados para tu rutina real.</div>
+      </div>
+      <div class="beneficio-card">
+        <span class="beneficio-icon">📈</span>
+        <div class="beneficio-titulo">Valor</div>
+        <div class="beneficio-text">Tu propiedad gana valor con diseño de calidad.</div>
+      </div>
+      <div class="beneficio-card">
+        <span class="beneficio-icon">✨</span>
+        <div class="beneficio-titulo">Identidad</div>
+        <div class="beneficio-text">Un espacio que te refleja y te representa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. SERVICIOS ─── -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="servicios-header reveal">
+      <div>
+        <div class="section-label" style="color:var(--salvia)">
+          <span style="background:var(--salvia);display:inline-block;width:24px;height:1px;"></span>
+          Lo que hacemos
+        </div>
+        <h2 class="servicios-titulo impact">Nuestros<br><span>Servicios</span></h2>
+      </div>
+      <p class="servicios-desc">No existe un solo tipo de proyecto, ni un solo tipo de cliente. Por eso ofrecemos distintas modalidades.</p>
+    </div>
+
+    <div class="servicios-grid">
+      <div class="servicio-card reveal">
+        <span class="servicio-num">01</span>
+        <div class="servicio-tag">Presencial</div>
+        <h3 class="servicio-titulo impact">Diseño Integral</h3>
+        <div class="servicio-para">Para quienes quieren un resultado completo</div>
+        <p class="servicio-desc">Planificación completa del espacio, selección de materiales, mobiliario, iluminación y accesorios. Coordinación con proveedores y seguimiento hasta la entrega final.</p>
+        <div class="servicio-resultado">Espacio completamente transformado, llave en mano</div>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-1">
+        <span class="servicio-num">02</span>
+        <div class="servicio-tag">Presencial</div>
+        <h3 class="servicio-titulo impact">Asesoramiento Personalizado</h3>
+        <div class="servicio-para">Para quienes necesitan dirección clara</div>
+        <p class="servicio-desc">Visita al espacio, diagnóstico detallado y un plan de acción concreto. Definimos paleta, estilo y prioridades para que puedas implementar a tu ritmo.</p>
+        <div class="servicio-resultado">Claridad total sobre qué hacer y en qué orden</div>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-2">
+        <span class="servicio-num">03</span>
+        <div class="servicio-tag">Presencial</div>
+        <h3 class="servicio-titulo impact">Remodelaciones</h3>
+        <div class="servicio-para">Para quien quiere renovar sin mudarse</div>
+        <p class="servicio-desc">Intervenciones estructurales y estéticas coordinadas. Trabajamos con los mejores proveedores para garantizar calidad, plazos y presupuesto acordado.</p>
+        <div class="servicio-resultado">Tu espacio renovado, sin el caos de la obra</div>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-3">
+        <span class="servicio-num">04</span>
+        <div class="servicio-tag">Online · Todo el país</div>
+        <h3 class="servicio-titulo impact">Diseño Online</h3>
+        <div class="servicio-para">Para quien está en cualquier ciudad</div>
+        <p class="servicio-desc">Diagnóstico por video, mood board personalizado, paleta de colores, guía de compras y plano de distribución. Todo de forma remota, con el mismo nivel de detalle.</p>
+        <div class="servicio-resultado">Diseño profesional sin importar dónde estés</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. PROCESO ─── -->
+<section id="proceso">
+  <div class="section-inner">
+    <div class="proceso-header reveal">
+      <div class="section-label" style="justify-content:center">Sin sorpresas</div>
+      <h2 class="proceso-titulo impact">Cómo <span>trabajamos</span></h2>
+      <p class="proceso-sub">Un proceso claro y ordenado para que sepas exactamente qué esperar en cada etapa.</p>
+    </div>
+
+    <div class="proceso-steps">
+      <div class="proceso-step reveal">
+        <div class="paso-circle"><span class="paso-num">01</span></div>
+        <div class="paso-titulo">Reunión Inicial</div>
+        <p class="paso-desc">Conocemos tu espacio, tu estilo de vida, tus gustos y tu presupuesto. Sin costo, sin compromiso.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-1">
+        <div class="paso-circle"><span class="paso-num">02</span></div>
+        <div class="paso-titulo">Propuesta Conceptual</div>
+        <p class="paso-desc">Presentamos el concepto visual, paleta, referencias y distribución. Ajustamos hasta que estés conforme.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-2">
+        <div class="paso-circle"><span class="paso-num">03</span></div>
+        <div class="paso-titulo">Desarrollo del Proyecto</div>
+        <p class="paso-desc">Planimetría, selección de materiales y coordinación de proveedores. Control de calidad en cada etapa.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-3">
+        <div class="paso-circle"><span class="paso-num">04</span></div>
+        <div class="paso-titulo">Implementación</div>
+        <p class="paso-desc">Seguimiento de obra o implementación, y acompañamiento hasta el último detalle de la entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. PORTFOLIO ─── -->
+<section id="portfolio">
+  <div class="section-inner">
+    <div class="portfolio-header reveal">
+      <div>
+        <div class="section-label" style="color:var(--teal)"><span></span>Proyectos reales</div>
+        <h2 class="portfolio-titulo impact">Cada obra<br>cuenta una <span>historia.</span></h2>
+      </div>
+      <p class="portfolio-intro">No solo mostramos resultados lindos. Contamos el problema inicial, la solución aplicada y el impacto real en quienes viven ahí.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-placeholder">
+          <span style="font-size:56px;opacity:0.1">🛋️</span>
+          <span style="font-family:Impact;font-size:12px;letter-spacing:0.2em;color:var(--teal);opacity:0.3;text-transform:uppercase">Proyecto destacado · 800×802px</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-card-tag">Diseño Integral · 2024</div>
+          <div class="portfolio-card-titulo">Living Palermo</div>
+          <p class="portfolio-card-desc">Familia con dos hijos que necesitaba funcionalidad sin resignar estética. Transformamos 45m² en un espacio que funciona de día y de noche.</p>
+          <a href="#contacto" class="portfolio-card-link">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-placeholder">
+          <span style="font-size:40px;opacity:0.1">🏠</span>
+          <span style="font-family:Impact;font-size:11px;letter-spacing:0.15em;color:var(--terracota);opacity:0.3;text-transform:uppercase">400×400px</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-card-tag">Asesoramiento · 2024</div>
+          <div class="portfolio-card-titulo">Monoambiente Recoleta</div>
+          <p class="portfolio-card-desc">Maximizar cada metro cuadrado sin sacrificar calidez. Solución de paleta y distribución en una sola sesión.</p>
+          <a href="#contacto" class="portfolio-card-link">Ver proyecto →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-delay-2">
+        <div class="portfolio-placeholder">
+          <span style="font-size:40px;opacity:0.1">🌿</span>
+          <span style="font-family:Impact;font-size:11px;letter-spacing:0.15em;color:var(--salvia);opacity:0.3;text-transform:uppercase">400×400px</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-card-tag">Diseño Online · 2025</div>
+          <div class="portfolio-card-titulo">Dormitorio Córdoba</div>
+          <p class="portfolio-card-desc">Proyecto 100% remoto para una clienta en el interior. Mismo resultado, diferente metodología.</p>
+          <a href="#contacto" class="portfolio-card-link">Ver proyecto →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. AUTORIDAD ─── -->
+<section id="autoridad">
+  <div class="section-inner">
+    <div class="autoridad-grid">
+      <div class="reveal">
+        <div class="autoridad-img-wrap">
+          <div class="autoridad-img-placeholder">
+            <span style="font-size:80px;opacity:0.1">👩‍🎨</span>
+            <span style="font-family:Impact;font-size:12px;letter-spacing:0.15em;color:var(--teal);opacity:0.3;text-transform:uppercase">Tu foto aquí<br>400×533px</span>
+          </div>
+          <div class="autoridad-badge">
+            <span class="badge-num">+8</span>
+            <span class="badge-text">años de experiencia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="section-label">La persona detrás del proyecto</div>
+        <h2 class="autoridad-titulo impact">Soy Lali<br><span>González.</span></h2>
+        <div class="autoridad-cargo">Diseñadora de Interiores</div>
+        <p class="autoridad-bio">
+          Me especializo en <strong>transformar espacios cotidianos</strong> en entornos que las personas realmente disfrutan habitar. Creo que el diseño no es un lujo — es una necesidad que mejora la calidad de vida.<br><br>
+          Con más de 8 años de experiencia y decenas de proyectos realizados en Argentina, trabajo con cada cliente para entender no solo su espacio, sino su <strong>forma de vivir</strong>.
+        </p>
+        <div class="autoridad-diferencial">
+          <p class="diferencial-text">
+            "No diseño para revistas. Diseño para personas reales, con vidas reales. <strong>El resultado tiene que ser hermoso Y funcionar todos los días.</strong>"
+          </p>
+        </div>
+        <a href="#contacto" class="btn-primary" style="background:var(--teal);">Hablemos de tu proyecto →</a>
+      </div>
+    </div>
+
+    <!-- Testimonios -->
+    <div class="reveal">
+      <h3 class="testimonios-titulo impact">Lo que dicen <span>quienes</span> confiaron</h3>
+      <div class="testimonios-grid">
+        <div class="testimonio-card">
+          <div class="testimonio-quote">"</div>
+          <p class="testimonio-text">Lali entendió exactamente lo que necesitábamos. No solo quedó hermoso — es el espacio más funcional que tuvimos. Cada detalle tiene sentido.</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">MR</div>
+            <div class="autor-info">
+              <div class="autor-nombre">Macarena R.</div>
+              <div class="autor-proyecto">Diseño integral · Palermo</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <div class="testimonio-quote">"</div>
+          <p class="testimonio-text">Empecé con muchas dudas y terminé con una claridad total. El asesoramiento valió cada peso — ahorré mucho más de lo que gasté evitando errores.</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">JL</div>
+            <div class="autor-info">
+              <div class="autor-nombre">Juliana L.</div>
+              <div class="autor-proyecto">Asesoramiento · Recoleta</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <div class="testimonio-quote">"</div>
+          <p class="testimonio-text">Hice el servicio online desde Mendoza y fue una experiencia increíble. El mood board y la guía de compras fueron tan detallados que no tuve dudas.</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">SC</div>
+            <div class="autor-info">
+              <div class="autor-nombre">Sofía C.</div>
+              <div class="autor-proyecto">Diseño online · Mendoza</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. FAQ ─── -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="faq-grid">
+      <div class="reveal">
+        <div class="section-label" style="color:var(--salvia)"><span style="background:var(--salvia);"></span>Respondemos todo</div>
+        <h2 class="faq-titulo impact">Pre<span>guntas</span><br>fre<span>cuentes</span></h2>
+      </div>
+
+      <div class="faq-list reveal reveal-delay-1">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Cuánto tiempo lleva un proyecto?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Depende del alcance. Un asesoramiento puede realizarse en 1–2 semanas. Un diseño integral completo puede tomar entre 6 semanas y 4 meses según la complejidad. Siempre establecemos tiempos claros desde el inicio.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Trabajás con presupuestos definidos?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Sí. Trabajamos con el presupuesto que vos tenés, no al revés. En la primera reunión definimos ese marco y todas las propuestas que hacemos se ajustan a él. Sin sorpresas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Solo trabajás en Buenos Aires?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Los proyectos presenciales los realizamos principalmente en CABA y GBA. Pero el servicio de diseño online está disponible para todo el país — sin importar en qué ciudad estés.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Se puede hacer el proyecto por etapas?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Absolutamente. Muchos de nuestros clientes implementan por etapas según sus tiempos y presupuesto. El diseño completo se planifica desde el inicio para que cada etapa tenga sentido y coherencia.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Cómo funciona el diseño online exactamente?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Hacemos una videollamada de diagnóstico, luego te enviamos un mood board, paleta de colores, plano de distribución y una guía de compras con alternativas para distintos presupuestos. Todo vía digital, con el mismo cuidado que un proyecto presencial.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Qué pasa si no me gusta la propuesta inicial?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-a-text">Incluimos rondas de revisión en todos los servicios. El proceso es iterativo: presentamos, escuchamos, ajustamos. Tu satisfacción es el objetivo, no entregar algo rápido.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 9. CONTACTO ─── -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="contacto-grid">
+      <div class="reveal">
+        <div class="contacto-eyebrow">Es el momento</div>
+        <h2 class="contacto-titulo impact">
+          Empecemos a
+          <span class="break oscuro-word">transformar</span>
+          tu espacio.
+        </h2>
+        <p class="contacto-desc">
+          La reunión inicial es sin costo y sin compromiso. Contanos de tu proyecto y te respondemos en menos de 24 hs.
+        </p>
+        <a href="https://wa.me/543516825580?text=Hola%20Lali!%20Vi%20tu%20web%20y%20me%20gustaría%20hablar%20sobre%20mi%20proyecto%20de%20diseño." class="contacto-whatsapp" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribirme por WhatsApp
+        </a>
+        <div class="contacto-o">— o completá el formulario —</div>
+      </div>
+
+      <div class="form-wrap reveal reveal-delay-1">
+        <div class="form-titulo">Contame tu proyecto</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="tipo">Tipo de proyecto *</label>
+            <select id="tipo">
+              <option value="" disabled selected>Seleccioná uno</option>
+              <option>Diseño integral</option>
+              <option>Asesoramiento personalizado</option>
+              <option>Remodelación</option>
+              <option>Diseño online</option>
+              <option>No sé todavía</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="mensaje">Contame brevemente tu proyecto</label>
+            <textarea id="mensaje" placeholder="¿Qué espacio? ¿Qué necesitás cambiar? ¿Cuándo querés empezar?"></textarea>
+          </div>
+        </div>
+        <button class="form-submit" onclick="enviarWhatsApp()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp →
+        </button>
+        <p class="form-micro">Se va a abrir WhatsApp con tu mensaje. Respondemos en menos de 24 hs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 10. CIERRE ─── -->
+<section id="cierre">
+  <div class="cierre-inner">
+    <div class="section-label reveal" style="justify-content:center;color:var(--teal)"><span></span>Garantía implícita</div>
+    <h2 class="cierre-titulo impact reveal">Diseño con <span>propósito.</span><br>Resultados con evidencia.</h2>
+    <p class="cierre-sub reveal">Acompañamos cada proyecto con claridad, profesionalismo y compromiso real. No entregamos hasta que estés conforme — porque lo que construimos juntos tiene que durar.</p>
+
+    <div class="cierre-garantias reveal">
+      <div class="garantia-item"><span>✓</span> Presupuesto respetado</div>
+      <div class="garantia-item"><span>✓</span> Plazos acordados</div>
+      <div class="garantia-item"><span>✓</span> Revisiones incluidas</div>
+      <div class="garantia-item"><span>✓</span> Acompañamiento total</div>
+    </div>
+
+    <a href="#contacto" class="btn-primary reveal" style="margin:0 auto;display:inline-flex;">
+      Quiero empezar mi proyecto →
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-brand"><span>Lali González</span> · Merecés Diseño</div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/mereces.diseno.cba/" target="_blank">Instagram</a>
+    <a href="#">Pinterest</a>
+    <a href="#">Houzz</a>
+  </div>
+  <div class="footer-copy">© 2025 · Todos los derechos reservados</div>
+</footer>
+
+<!-- ─── JS ─── -->
+<script>
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 50 ? '12px 5vw' : '18px 5vw';
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+  }
+
+  // BEFORE/AFTER SLIDER
+  const baWrapper = document.getElementById('baWrapper');
+  const baAfter = document.getElementById('baAfter');
+  const baDivider = document.getElementById('baDivider');
+  let isDragging = false;
+
+  function updateSlider(x) {
+    const rect = baWrapper.getBoundingClientRect();
+    const pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+    baAfter.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    baDivider.style.left = pct + '%';
+  }
+
+  baWrapper.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+  window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+  window.addEventListener('mouseup', () => { isDragging = false; });
+
+  baWrapper.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => { isDragging = false; });
+
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ ACCORDION
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // WHATSAPP FORM
+  function enviarWhatsApp() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const tipo = document.getElementById('tipo').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre) { alert('Por favor ingresá tu nombre 😊'); return; }
+    if (!tipo || tipo === '') { alert('Seleccioná el tipo de proyecto 😊'); return; }
+
+    const texto = `Hola Lali! 👋 Te escribo desde tu web.\n\n👤 *Nombre:* ${nombre}\n🏠 *Tipo de proyecto:* ${tipo}${mensaje ? '\n💬 *Mensaje:* ' + mensaje : ''}\n\n¡Espero tu respuesta!`;
+    const url = `https://wa.me/543516825580?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  }
+
+  // NAV active link highlight
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 200) current = sec.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = '';
+      a.style.opacity = '0.7';
+      if (a.getAttribute('href') === '#' + current) {
+        a.style.color = 'var(--teal)';
+        a.style.opacity = '1';
+      }
+    });
+  });
+</script>
+</body>
+</html>
